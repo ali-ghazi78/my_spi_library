@@ -23,8 +23,8 @@ void spi_init(PORT_t *SPI_PORT,SPI_t *SPI,unsigned char SPI_MOSI_PIN_NUMBER,unsi
 	
 	
 															
-	SPI_PORT->DIRSET=(1<<SPI_SCK_PIN_NUMBER)|(1<<SPI_MOSI_PIN_NUMBER);		//set mosi and sck and ss as output just set as output don't give any thing to out don't use port.out=1<<X
-	SPI_SS_PORT->DIRSET=SPI_SS_PIN_NUMBER;									// the reason that i use another port typedef for ss is that you can use several spi slave 
+	SPI_PORT->DIRSET=(1<<SPI_SCK_PIN_NUMBER)|(1<<SPI_MOSI_PIN_NUMBER);		//set MOSI and SCK and SS as output just set as output don't give any thing to out don't use port.out=1<<X
+	SPI_SS_PORT->DIRSET=SPI_SS_PIN_NUMBER;									// the reason that i use another port typedef for SS is that you can use several spi slave 
 	
 	SPI_PORT->DIRCLR=(1<<SPI_MISO_PIN_NUMBER);
 	SPI.CTRL=(SPI_ENABLE_bm)|(SPI_MASTER_bm)|(SPI_PRESCALER)|(SPI_MODE);//mode 1 is chosen	don't forget to set the correct mode for spi otherwise you will interfere with some data shifting and problems hajiii mode kheili moheme yaani nokte asasi entekhabe mode doroste ke sck ro kodom labe bayad puls befreste
@@ -37,7 +37,7 @@ void spi_write(SPI_t *SPI,unsigned char my_data,unsigned char data_order)
 	//data oreder==0---->msb first   | NOT SURE DATA OREDER 0 IS PREFERED
 	//data oreder==1---->lsb first   | NOT SURE DATA OREDER 0 IS PREFERED
 	//handy data order
-	//datasheet nrf dar morede databit command va data zer zade .har do tahsoon ye joor fersetade mishn lazm nis avaz koni data order ro
+	//DATASHEET NRF DAR MOREDE DATABIT COMMAND VA data ZER ZADE .HAR do TASHOON ye JOOR FERESTEDE MISHN LAZM nis avaz koni data order ro
 	
 	if(data_order)// i dont wanna use data order when using nrf
 	{
