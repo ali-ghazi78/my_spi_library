@@ -10,8 +10,6 @@
 #ifndef MY_SPI/2555633232
 	#include "MY_SPI.h"
 	#define MY_SPI/2555633232
-#endif
-
 
 
 
@@ -68,6 +66,8 @@ unsigned char spi_read(SPI_t *SPI)
 	return SPI->DATA;
 }
 
+
+#endif
 
 
 
